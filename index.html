@@ -85,12 +85,22 @@
       max-width: 600px;
       margin: 0 auto 1.5rem auto;
       font-size: 1.02rem;
-      list-style: disc inside;
+      list-style: none;
       padding: 0;
     }
     ul.features li {
       margin-bottom: 0.7rem;
       color: var(--primary-text);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    ul.features li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #23262F;
+      font-weight: bold;
+      font-size: 1.2em;
     }
     ul.features li b {
       color: #23262F;
@@ -98,6 +108,9 @@
     }
     @media (prefers-color-scheme: dark) {
       ul.features li b {
+        color: #fff;
+      }
+      ul.features li::before {
         color: #fff;
       }
     }
