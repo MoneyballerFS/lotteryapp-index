@@ -9,128 +9,163 @@
   <title>Fantasy Draft Lottery Tool</title>
   <style>
     :root {
-      color-scheme: light dark;
+      --primary-bg: #f7f8fa;
+      --primary-text: #181A20;
+      --primary-blue: #1976D2;
+      --container-bg: #fff;
+      --button-bg: #1976D2;
+      --button-text: #fff;
+      --footer-bg: #fff;
+      --footer-text: #888;
+      --feature-bold: #1976D2;
     }
-
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-bg: #181A20;
+        --primary-text: #fff;
+        --container-bg: #23262F;
+        --button-bg: #1976D2;
+        --button-text: #fff;
+        --footer-bg: #23262F;
+        --footer-text: #bbb;
+        --feature-bold: #fff;
+      }
+    }
     body {
+      background: var(--primary-bg);
+      color: var(--primary-text);
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", system-ui, sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
     }
-
     .container {
       max-width: 900px;
       margin: 3rem auto;
       padding: 2rem;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    }
-
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    ul {
-      line-height: 1.8;
-      padding-left: 1.5rem;
-    }
-
-    .button {
-      display: inline-block;
-      background-color: #4a90e2;
-      color: white;
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 2rem;
-      transition: background 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #3a78c2;
-    }
-
-    footer {
+      background: var(--container-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
       text-align: center;
-      font-size: 0.9rem;
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #ccc;
-      background-color: #f1f1f1;
     }
-
+    .fbi-logo {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.5rem;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      object-fit: cover;
+      background: #fff;
+    }
+    h1, h2 {
+      font-size: 2.5rem;
+      color: #23262F;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--primary-text);
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .intro {
+      font-size: 1.08rem;
+      max-width: 650px;
+      margin: 0 auto 1.5rem auto;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+      color: var(--primary-text);
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 3.5rem;
+      font-weight: 700;
+    }
+    ul.features {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+      font-size: 1.02rem;
+      list-style: disc inside;
+      padding: 0;
+    }
+    ul.features li {
+      margin-bottom: 0.7rem;
+      color: var(--primary-text);
+    }
+    ul.features li b {
+      color: #23262F;
+      font-weight: 600;
+    }
     @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #1e1e1e;
-        color: #f5f5f5;
-      }
-
-      .container {
-        background-color: #2a2d31;
-      }
-
-      ul li {
-        color: #ddd;
-      }
-
-      p, h1, h2 {
-        color: #f0f0f0;
-      }
-
-      .button {
-        background-color: #4a90e2;
+      ul.features li b {
         color: #fff;
       }
-
-      .button:hover {
-        background-color: #3a78c2;
+    }
+    .button {
+      display: inline-block;
+      font-size: 1.08rem;
+      padding: 0.9rem 2rem;
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 2rem;
+      box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #1251a3;
+      box-shadow: 0 4px 16px rgba(25, 118, 210, 0.13);
+    }
+    footer {
+      margin-top: 3rem;
+      padding: 1.2rem 0 0 0;
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      font-size: 0.98rem;
+      border-radius: 0 0 16px 16px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem 0.5rem;
       }
-
-      footer {
-        background-color: #1f2124;
-        color: #aaa;
-        border-top: 1px solid #444;
+      h1 {
+        font-size: 1.5rem;
       }
-
-      a {
-        color: #aad4ff;
+    }
+    @media (prefers-color-scheme: dark) {
+      h1, h2 {
+        color: #fff;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Fantasy Draft Lottery 🏀🏈⚽⚾</h1>
-  <p>This free tool helps you run fantasy draft lotteries for any league format — perfect for both redraft and dynasty leagues. Built to be fair, simple, and ad-free.</p>
-
-  <h2>Key Features</h2>
-  <ul>
-    <li>Supports up to 30 teams with custom names</li>
-    <li>Weighted odds based on lottery balls — ideal for dynasty formats</li>
-    <li>Redraft support: assign equal weight to all teams for a completely random order</li>
-    <li>Live pick reveal animation — just for fun!</li>
-    <li>Choose between auto-draw for fast results or manual reveals for suspense</li>
-    <li>Final draftboard is cleanly formatted and ready to share with your league</li>
-  </ul>
-
-  <a class="button" href="https://app.moneyballerops.com" target="_blank">Launch the Draft Tool</a>
-</div>
-
+  <div class="container">
+    <img src="FBI_LARGE_WHITESKY.png" alt="Fantasy Basketball International Logo" class="fbi-logo" />
+    <h1>Fantasy Lottery Tool</h1>
+    <div class="tagline"><b>By Fantasy Basketball International</b></div>
+    <p class="intro">
+      A sharp, reliable tool for running fair and exciting draft lotteries. Built from the ground up with fantasy basketball at its core, but ready for any format — NBA, NFL, Soccer, MLB or your custom league. Whether it's a weighted dynasty draw or a clean-slate redraft, this app gives you everything you need to run your lottery with clarity and confidence.
+    </p>
+  
+    <h2>Key Features</h2>
+    <ul class="features">
+      <li><b>Deep Lottery Support:</b> Run lotteries for up to 30 teams with custom names</li>
+      <li><b>Weighted Odds:</b> Using lottery ball system — ideal for dynasty formats</li>
+      <li><b>Redraft Support:</b> Assign equal weight for a fully random order</li>
+      <li><b>Live Pick Reveal:</b> Animated draft results</li>
+      <li><b>Auto-Draft Capabilities:</b> Draft your picks at your pace, your choice</li>
+      <li><b>Draftboard Export:</b> clean, polished, and ready to share with your league</li>
+    </ul>
+  
+    <a class="button" href="https://app.moneyballerops.com" target="_blank">Launch the Draft Tool</a>
+  </div>  
 </body>
 </html>
