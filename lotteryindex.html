@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fantasy Draft Lottery Tool | Free Draft Order Generator for NBA, NFL, MLB, NHL</title>
+  <meta name="description" content="Free fantasy draft lottery tool with weighted odds, live pick reveals, and shareable results. Generate your dynasty or redraft league's draft order for NBA, NFL, MLB, NHL, EPL and more. No sign-up required." />
+  <meta name="keywords" content="fantasy draft lottery, fantasy draft order generator, fantasy basketball lottery, dynasty league lottery, redraft draft order, nba fantasy draft, nfl fantasy draft, weighted draft lottery, fantasy league draft tool, free draft lottery, draft pick generator, fantasy football lottery, fantasy baseball draft order" />
+  <meta name="author" content="Moneyballers" />
+
+  <!-- Open Graph (Facebook, Discord, iMessage, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fantasy Draft Lottery Tool | Free Draft Order Generator" />
+  <meta property="og:description" content="Run your league's draft lottery with weighted odds, live reveals, and shareable results. Free, transparent, no sign-up. Works for NBA, NFL, MLB, NHL and more." />
+  <meta property="og:url" content="https://app.moneyballerops.com" />
+  <meta property="og:image" content="https://app.moneyballerops.com/FBI_LARGE_WHITESKY.png" />
+  <meta property="og:site_name" content="Fantasy Draft Lottery" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fantasy Draft Lottery Tool | Free Draft Order Generator" />
+  <meta name="twitter:description" content="Weighted odds, live pick reveals, shareable results. Free draft lottery for any fantasy league." />
+  <meta name="twitter:image" content="https://app.moneyballerops.com/FBI_LARGE_WHITESKY.png" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://app.moneyballerops.com" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Fantasy Draft Lottery Tool",
+    "url": "https://app.moneyballerops.com",
+    "description": "Free fantasy draft lottery tool with weighted odds, live pick reveals, and shareable results. Generate draft order for dynasty and redraft leagues.",
+    "applicationCategory": "SportsApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Moneyballers"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg2: #111827;
+      --gold: #f59e0b;
+      --gold-lt: #fbbf24;
+      --blue: #60a5fa;
+      --emerald: #10b981;
+      --text: #f9fafb;
+      --text2: #d1d5db;
+      --text3: #9ca3af;
+      --muted: #6b7280;
+      --dim: #4b5563;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-light: rgba(255, 255, 255, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* Ambient glow */
+    .glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 15% 10%, rgba(96, 165, 250, 0.06), transparent),
+        radial-gradient(ellipse 500px 350px at 85% 8%, rgba(245, 158, 11, 0.05), transparent),
+        radial-gradient(ellipse 400px 300px at 50% 90%, rgba(16, 185, 129, 0.04), transparent);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
+    }
+
+    .hero-logo {
+      display: block;
+      width: 12rem;
+      height: 12rem;
+      object-fit: contain;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.06), 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 480px) {
+      .hero-logo {
+        width: 9rem;
+        height: 9rem;
+      }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      font-size: 1.0625rem;
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      gap: 0.375rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text2);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.625rem;
+      border-radius: 9999px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #f97316);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.8125rem 2.25rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
+    }
+
+    .cta-btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+    }
+
+    .cta-sub {
+      display: block;
+      margin-top: 0.625rem;
+      font-size: 0.6875rem;
+      color: var(--muted);
+    }
+
+    /* Features */
+    .features-section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 540px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.5));
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.125rem 1.25rem;
+    }
+
+    .feature-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-desc {
+      font-size: 0.75rem;
+      color: var(--text3);
+      line-height: 1.5;
+    }
+
+    .feature-accent {
+      color: var(--gold);
+    }
+
+    /* Sports */
+    .sports-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .sports-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .sport-pill {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--text3);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 0.3125rem 0.75rem;
+      border-radius: 9999px;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1.25rem 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .footer-text {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.75rem; }
+      .hero-desc { font-size: 0.9375rem; }
+      .page { padding: 1.5rem 1rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow"></div>
+
+  <div class="page">
+    <!-- Hero -->
+    <div class="hero">
+      <img src="FBI_LARGE_WHITESKY.png" alt="Fantasy Basketball International" class="hero-logo" />
+      <div class="hero-badge">Dynasty & Redraft</div>
+      <h1>Run your draft lottery with full transparency</h1>
+      <p class="hero-desc">
+        A sharp, reliable tool for running fair draft lotteries. Weighted odds for dynasty, equal draw for redraft. Live pick reveals, shareable results, instant export. Free, no sign-up, no ads.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Weighted Odds</span>
+        <span class="tag">Live Reveal</span>
+        <span class="tag">Shareable Link</span>
+        <span class="tag">Email & CSV Export</span>
+      </div>
+      <a class="cta-btn" href="https://app.moneyballerops.com" target="_blank">Launch Draft Lottery</a>
+      <span class="cta-sub">No sign-up required</span>
+    </div>
+
+    <!-- Features -->
+    <div class="features-section">
+      <h2 class="section-title">Built for Draft Night</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-label">Up to <span class="feature-accent">30 Teams</span></div>
+          <div class="feature-desc">Custom team names with individual lottery ball allocations</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-label">Weighted <span class="feature-accent">Lottery Balls</span></div>
+          <div class="feature-desc">Assign more balls to worse teams for true dynasty-style odds</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-label">Live <span class="feature-accent">Pick Reveal</span></div>
+          <div class="feature-desc">Countdown, animated draw, and one-by-one reveals or auto-draft</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-label">Share <span class="feature-accent">Instantly</span></div>
+          <div class="feature-desc">Generate a link anyone can open, email results, or copy for Discord</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-label">Odds <span class="feature-accent">Transparency</span></div>
+          <div class="feature-desc">Visual odds chart so every manager sees the exact probabilities</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-label">Export <span class="feature-accent">Draftboard</span></div>
+          <div class="feature-desc">Download CSV, copy formatted results, or share via link</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sports -->
+    <div class="sports-section">
+      <h2 class="section-title">Works for Any League</h2>
+      <p class="feature-desc" style="margin-bottom: 0.75rem;">Built with fantasy basketball at its core, ready for any format</p>
+      <div class="sports-row">
+        <span class="sport-pill">NBA</span>
+        <span class="sport-pill">NFL</span>
+        <span class="sport-pill">MLB</span>
+        <span class="sport-pill">NHL</span>
+        <span class="sport-pill">EPL</span>
+        <span class="sport-pill">Custom</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-links">
+        <a href="https://t.co/Gcvt13ghsP" target="_blank">Discord Community</a>
+        <a href="https://forms.gle/tm6keVXWNLJRNuS87" target="_blank">Submit Feedback</a>
+      </div>
+      <p class="footer-text">Moneyballers Impact Index</p>
+    </div>
+  </div>
+
+</body>
+</html>
