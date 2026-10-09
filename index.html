@@ -2,30 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fantasy Draft Lottery Tool | Free Draft Order Generator for NBA, NFL, MLB, NHL</title>
-  <meta name="description" content="Free fantasy draft lottery tool with weighted odds, live pick reveals, and shareable results. Generate your dynasty or redraft league's draft order for NBA, NFL, MLB, NHL, EPL and more. No sign-up required." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fantasy Draft Lottery | Moneyballers Impact</title>
+  <meta name="description" content="Run a transparent fantasy draft lottery with weighted odds, live pick reveals, and shareable results. Free for dynasty and redraft leagues." />
   <meta name="keywords" content="fantasy draft lottery, fantasy draft order generator, fantasy basketball lottery, dynasty league lottery, redraft draft order, nba fantasy draft, nfl fantasy draft, weighted draft lottery, fantasy league draft tool, free draft lottery, draft pick generator, fantasy football lottery, fantasy baseball draft order" />
-  <meta name="author" content="Moneyballers" />
+  <meta name="author" content="Moneyballers Impact" />
+  <meta name="theme-color" content="#060912" />
 
-  <!-- Open Graph (Facebook, Discord, iMessage, etc.) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Fantasy Draft Lottery Tool | Free Draft Order Generator" />
-  <meta property="og:description" content="Run your league's draft lottery with weighted odds, live reveals, and shareable results. Free, transparent, no sign-up. Works for NBA, NFL, MLB, NHL and more." />
+  <meta property="og:title" content="Fantasy Draft Lottery | Moneyballers Impact" />
+  <meta property="og:description" content="Set the odds, reveal every pick live, and share a transparent draft order with your league." />
   <meta property="og:url" content="https://app.moneyballerops.com" />
-  <meta property="og:image" content="https://app.moneyballerops.com/FBI_LARGE_WHITESKY.png" />
-  <meta property="og:site_name" content="Fantasy Draft Lottery" />
+  <meta property="og:image" content="https://app.moneyballerops.com/mb-logo.png" />
+  <meta property="og:site_name" content="Moneyballers Impact" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Fantasy Draft Lottery Tool | Free Draft Order Generator" />
-  <meta name="twitter:description" content="Weighted odds, live pick reveals, shareable results. Free draft lottery for any fantasy league." />
-  <meta name="twitter:image" content="https://app.moneyballerops.com/FBI_LARGE_WHITESKY.png" />
+  <meta name="twitter:title" content="Fantasy Draft Lottery | Moneyballers Impact" />
+  <meta name="twitter:description" content="Set the odds, reveal every pick live, and share a transparent draft order with your league." />
+  <meta name="twitter:image" content="https://app.moneyballerops.com/mb-logo.png" />
 
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://app.moneyballerops.com" />
 
-  <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,187 +39,247 @@
     },
     "creator": {
       "@type": "Organization",
-      "name": "Moneyballers"
+      "name": "Moneyballers Impact"
     }
   }
   </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BF51ZPWLCP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BF51ZPWLCP');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0a0e17;
-      --bg2: #111827;
-      --gold: #f59e0b;
-      --gold-lt: #fbbf24;
-      --blue: #60a5fa;
-      --emerald: #10b981;
-      --text: #f9fafb;
-      --text2: #d1d5db;
-      --text3: #9ca3af;
-      --muted: #6b7280;
-      --dim: #4b5563;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-light: rgba(255, 255, 255, 0.12);
+      color-scheme: dark;
+      --bg: #060912;
+      --bg2: #0d1422;
+      --surface: #111827;
+      --surface-raised: #182235;
+      --accent: #3973e6;
+      --accent-rgb: 57, 115, 230;
+      --accent-light: #8ab4ff;
+      --accent-deep: #183f8c;
+      --gold: #e7c34f;
+      --gold-rgb: 231, 195, 79;
+      --text: #f5f7fb;
+      --text2: #c6cfdd;
+      --text3: #98a7ba;
+      --muted: #718096;
+      --border: rgba(108, 132, 166, 0.18);
+      --border-light: rgba(108, 132, 166, 0.28);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
       font-size: 16px;
+      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     body {
+      min-width: 320px;
+      min-height: 100vh;
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
+      font-family: "DM Sans", system-ui, -apple-system, sans-serif;
     }
 
-    /* Ambient glow */
+    a:focus-visible {
+      outline: 3px solid rgba(var(--accent-rgb), 0.6);
+      outline-offset: 3px;
+    }
+
     .glow {
       position: fixed;
       inset: 0;
-      pointer-events: none;
       z-index: 0;
+      pointer-events: none;
       background:
-        radial-gradient(ellipse 600px 400px at 15% 10%, rgba(96, 165, 250, 0.06), transparent),
-        radial-gradient(ellipse 500px 350px at 85% 8%, rgba(245, 158, 11, 0.05), transparent),
-        radial-gradient(ellipse 400px 300px at 50% 90%, rgba(16, 185, 129, 0.04), transparent);
+        radial-gradient(ellipse 660px 440px at 10% 6%, rgba(var(--gold-rgb), 0.08), transparent 68%),
+        radial-gradient(ellipse 620px 420px at 90% 8%, rgba(var(--accent-rgb), 0.15), transparent 68%),
+        radial-gradient(ellipse 480px 320px at 50% 96%, rgba(var(--gold-rgb), 0.055), transparent 70%),
+        linear-gradient(160deg, #03060d 0%, #09101d 45%, var(--bg) 100%);
+    }
+
+    .glow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.16;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 68%);
     }
 
     .page {
       position: relative;
       z-index: 1;
-      max-width: 720px;
+      width: min(760px, 100%);
       margin: 0 auto;
       padding: 2rem 1.5rem 3rem;
     }
 
-    /* Hero */
     .hero {
-      text-align: center;
+      padding: 1.5rem 0 0.5rem;
       margin-bottom: 3rem;
-      padding-top: 2rem;
+      text-align: center;
     }
 
     .hero-logo {
+      width: 10.5rem;
+      height: 10.5rem;
       display: block;
-      width: 12rem;
-      height: 12rem;
+      margin: 0 auto 1.25rem;
       object-fit: contain;
-      border-radius: 50%;
-      margin: 0 auto 1.5rem;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.06), 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (max-width: 480px) {
-      .hero-logo {
-        width: 9rem;
-        height: 9rem;
-      }
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      box-shadow:
+        0 18px 48px rgba(2, 6, 23, 0.48),
+        -12px -8px 42px rgba(var(--accent-rgb), 0.12),
+        14px 10px 42px rgba(var(--gold-rgb), 0.07);
     }
 
     .hero-badge {
-      display: inline-block;
-      font-size: 0.625rem;
-      font-weight: 700;
-      color: var(--gold);
-      background: rgba(245, 158, 11, 0.1);
-      border: 1px solid rgba(245, 158, 11, 0.15);
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       margin-bottom: 1rem;
+      padding: 0.34rem 0.78rem;
+      border: 1px solid rgba(var(--gold-rgb), 0.34);
+      border-radius: 9999px;
+      background: rgba(var(--gold-rgb), 0.1);
+      color: var(--gold);
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(var(--gold-rgb), 0.58);
     }
 
     .hero h1 {
-      font-size: 2.25rem;
+      color: white;
+      font-family: "Barlow Condensed", "DM Sans", sans-serif;
+      font-size: clamp(2.4rem, 7vw, 3.4rem);
       font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
 
     .v3-tag {
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: var(--gold);
-      background: rgba(245, 158, 11, 0.1);
-      padding: 0.125rem 0.5rem;
+      display: inline-block;
+      margin-left: 0.3rem;
+      padding: 0.18rem 0.48rem;
+      border: 1px solid rgba(var(--gold-rgb), 0.3);
       border-radius: 9999px;
+      background: rgba(var(--gold-rgb), 0.08);
+      color: var(--gold);
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
       vertical-align: middle;
-      letter-spacing: 0.04em;
-      margin-left: 0.25rem;
     }
 
     .hero-desc {
-      font-size: 1.0625rem;
+      max-width: 570px;
+      margin: 1rem auto 1.35rem;
       color: var(--text2);
+      font-size: 0.98rem;
       line-height: 1.7;
-      max-width: 540px;
-      margin: 0 auto 1.5rem;
     }
 
     .hero-tags {
       display: flex;
       justify-content: center;
-      gap: 0.375rem;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
+      gap: 0.42rem;
+      margin-bottom: 1.8rem;
     }
 
     .tag {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      color: var(--text2);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.625rem;
+      padding: 0.3rem 0.66rem;
+      border: 1px solid rgba(var(--gold-rgb), 0.28);
       border-radius: 9999px;
+      background: rgba(var(--gold-rgb), 0.07);
+      color: var(--gold);
+      font-size: 0.68rem;
+      font-weight: 600;
     }
 
     .cta-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold), #f97316);
-      color: var(--bg);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.8125rem 2.25rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.82rem 2rem;
+      border: 1px solid transparent;
+      border-radius: 0.7rem;
+      background: linear-gradient(120deg, var(--accent-deep), var(--accent) 72%, #5f91f2);
+      box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.24);
+      color: white;
+      font-size: 0.92rem;
+      font-weight: 800;
       letter-spacing: 0.01em;
-      transition: all 0.15s ease;
-      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
+      text-decoration: none;
+      transition: transform 180ms var(--ease), box-shadow 180ms ease;
     }
 
     .cta-btn:hover {
-      filter: brightness(1.1);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 38px rgba(var(--accent-rgb), 0.34);
     }
 
-    .cta-sub {
-      display: block;
-      margin-top: 0.625rem;
-      font-size: 0.6875rem;
-      color: var(--muted);
-    }
 
-    /* Features */
     .features-section {
       margin-bottom: 3rem;
     }
 
-    .section-title {
-      font-size: 1.125rem;
+    .section-kicker {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: var(--accent);
+      font-size: 0.62rem;
       font-weight: 700;
+      letter-spacing: 0.12em;
       text-align: center;
-      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin-bottom: 1.4rem;
       color: var(--text);
+      font-family: "Barlow Condensed", "DM Sans", sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-align: center;
+      text-transform: uppercase;
     }
 
     .features-grid {
@@ -231,175 +288,390 @@
       gap: 0.75rem;
     }
 
-    @media (max-width: 540px) {
-      .features-grid { grid-template-columns: 1fr; }
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 116px;
+      padding: 1.05rem 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      background: linear-gradient(145deg, rgba(21, 33, 60, 0.7), rgba(10, 16, 34, 0.82));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+      transition: transform 180ms var(--ease), border-color 180ms ease, background 180ms ease;
     }
 
-    .feature-card {
-      background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.5));
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border);
-      border-radius: 0.75rem;
-      padding: 1.125rem 1.25rem;
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      width: 3.5rem;
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.9;
+    }
+
+    .feature-card:nth-child(3n + 2)::before {
+      background: var(--gold);
+    }
+
+    .feature-card:nth-child(3n)::before {
+      background: var(--accent);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(var(--accent-rgb), 0.28);
+      background: linear-gradient(145deg, rgba(21, 33, 60, 0.88), rgba(10, 16, 34, 0.9));
     }
 
     .feature-label {
-      font-size: 0.8125rem;
-      font-weight: 600;
+      margin-bottom: 0.34rem;
       color: var(--text);
-      margin-bottom: 0.25rem;
+      font-size: 0.8rem;
+      font-weight: 700;
     }
 
     .feature-desc {
-      font-size: 0.75rem;
       color: var(--text3);
-      line-height: 1.5;
+      font-size: 0.73rem;
+      line-height: 1.55;
     }
 
     .feature-accent {
+      color: var(--accent-light);
+    }
+
+    .feature-card:nth-child(3n + 2) .feature-accent {
       color: var(--gold);
     }
 
-    /* Sports */
+    .feature-card:nth-child(3n) .feature-accent {
+      color: var(--accent-light);
+    }
+
     .sports-section {
-      text-align: center;
       margin-bottom: 3rem;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      background: rgba(10, 16, 34, 0.58);
+      text-align: center;
+    }
+
+    .sports-section .section-title {
+      margin-bottom: 0.45rem;
     }
 
     .sports-row {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
       flex-wrap: wrap;
-      margin-top: 0.75rem;
+      gap: 0.45rem;
+      margin-top: 0.9rem;
     }
 
     .sport-pill {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      color: var(--text3);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
-      padding: 0.3125rem 0.75rem;
+      padding: 0.34rem 0.68rem;
+      border: 1px solid rgba(var(--gold-rgb), 0.28);
       border-radius: 9999px;
+      background: rgba(var(--gold-rgb), 0.07);
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
     }
 
-    /* Footer */
     .footer {
-      border-top: 1px solid var(--border);
-      padding: 1.25rem 0;
-      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 3rem 1.5rem 1.5rem;
+      border-top: 1px solid rgba(var(--accent-rgb), 0.1);
+      background: #040814;
+    }
+
+    .footer-content {
+      width: min(760px, 100%);
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(13rem, 1.6fr) repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .footer-brand {
+      max-width: 20rem;
+    }
+
+    .footer-brand-name {
+      color: white;
+      font-family: "Barlow Condensed", "DM Sans", sans-serif;
+      font-size: 1.375rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .footer-brand-name span {
+      color: var(--gold);
+    }
+
+    .footer-brand p {
+      margin-top: 0.875rem;
+      color: var(--text3);
+      font-size: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .footer-group {
       display: flex;
       flex-direction: column;
-      gap: 0.375rem;
+      align-items: flex-start;
+      gap: 0.625rem;
     }
 
-    .footer-text {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .footer-links {
+    .footer-group h2 {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+      color: white;
+      font-family: "DM Sans", sans-serif;
       font-size: 0.75rem;
+      font-weight: 800;
     }
 
-    .footer-links a {
-      color: var(--gold);
+    .footer-group h2 span {
+      color: var(--muted);
+      font-size: 0.625rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-group a {
+      color: var(--text3);
+      font-size: 0.75rem;
+      line-height: 1.3;
       text-decoration: none;
+      transition: color 0.15s ease;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
+    .footer-group a:hover,
+    .footer-brand-name:hover {
+      color: var(--gold);
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 1.75rem; }
-      .hero-desc { font-size: 0.9375rem; }
-      .page { padding: 1.5rem 1rem 2rem; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(var(--accent-rgb), 0.08);
+      color: var(--muted);
+      font-size: 0.6875rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 720px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-brand {
+        max-width: 30rem;
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .footer {
+        padding: 2.25rem 1rem 1.25rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.75rem;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 2rem;
+      }
+
+      .page {
+        padding: 1.25rem 1rem 2rem;
+      }
+
+      .hero {
+        padding-top: 1rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .hero-logo {
+        width: 8.5rem;
+        height: 8.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-desc {
+        font-size: 0.9rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: auto;
+      }
+
+      .cta-btn {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
-
-  <div class="glow"></div>
+  <div class="glow" aria-hidden="true"></div>
 
   <div class="page">
-    <!-- Hero -->
-    <div class="hero">
-      <img src="FBI_LARGE_WHITESKY.png" alt="Fantasy Basketball International" class="hero-logo" />
-      <div class="hero-badge">Dynasty & Redraft</div>
-      <h1>Lottery Draft Simulator <span class="v3-tag">V3</span></h1>
-      <p class="hero-desc">
-        A sharp, reliable tool for running fair draft lotteries. Weighted odds for dynasty, equal draw for redraft. Live pick reveals, shareable results, instant export. Free, no sign-up.
-      </p>
-      <div class="hero-tags">
-        <span class="tag">Weighted Odds</span>
-        <span class="tag">Live Reveal</span>
-        <span class="tag">Shareable Link</span>
-        <span class="tag">Email & CSV Export</span>
-      </div>
-      <a class="cta-btn" href="https://app.moneyballerops.com" target="_blank">Launch Draft Lottery</a>
-      <span class="cta-sub">No sign-up required</span>
-    </div>
+    <main>
+      <section class="hero">
+        <a href="https://moneyballersimpact.com" aria-label="Visit Moneyballers Impact">
+          <img src="mb-logo.png" alt="Moneyballers Impact" class="hero-logo" />
+        </a>
+        <div class="hero-badge">Dynasty &amp; Redraft</div>
+        <h1>Lottery Draft Simulator <span class="v3-tag">v3</span></h1>
+        <p class="hero-desc">
+          A sharp, reliable tool for running fair draft lotteries. Weighted odds for dynasty, equal draw for redraft. Live pick reveals, shareable results, instant export.
+        </p>
+        <div class="hero-tags" aria-label="Product highlights">
+          <span class="tag">Weighted Odds</span>
+          <span class="tag">Live Reveal</span>
+          <span class="tag">Shareable Link</span>
+          <span class="tag">Email &amp; CSV Export</span>
+        </div>
+        <a class="cta-btn" href="https://app.moneyballerops.com">
+          Launch Draft Lottery <span aria-hidden="true">&rarr;</span>
+        </a>
+      </section>
 
-    <!-- Features -->
-    <div class="features-section">
-      <h2 class="section-title">Built for Draft Night</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-label">Up to <span class="feature-accent">30 Teams</span></div>
-          <div class="feature-desc">Custom team names with individual lottery ball allocations</div>
+      <section class="features-section" aria-labelledby="features-title">
+        <span class="section-kicker">Moneyballers Impact Draft Tools</span>
+        <h2 class="section-title" id="features-title">Built for Draft Night</h2>
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3 class="feature-label">Up to <span class="feature-accent">30 Teams</span></h3>
+            <p class="feature-desc">Custom team names with individual lottery ball allocations.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-label">Weighted <span class="feature-accent">Lottery Balls</span></h3>
+            <p class="feature-desc">Assign more balls to worse teams for true dynasty-style odds.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-label">Live <span class="feature-accent">Pick Reveal</span></h3>
+            <p class="feature-desc">Countdown, animated draw, and one-by-one reveals or auto-draft.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-label">Share <span class="feature-accent">Instantly</span></h3>
+            <p class="feature-desc">Generate a link anyone can open, email results, or copy a formatted board.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-label">Odds <span class="feature-accent">Transparency</span></h3>
+            <p class="feature-desc">Visual odds chart so every manager sees the exact probabilities.</p>
+          </article>
+          <article class="feature-card">
+            <h3 class="feature-label">Export <span class="feature-accent">Draftboard</span></h3>
+            <p class="feature-desc">Download CSV, copy formatted results, or share the final order by link.</p>
+          </article>
         </div>
-        <div class="feature-card">
-          <div class="feature-label">Weighted <span class="feature-accent">Lottery Balls</span></div>
-          <div class="feature-desc">Assign more balls to worse teams for true dynasty-style odds</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-label">Live <span class="feature-accent">Pick Reveal</span></div>
-          <div class="feature-desc">Countdown, animated draw, and one-by-one reveals or auto-draft</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-label">Share <span class="feature-accent">Instantly</span></div>
-          <div class="feature-desc">Generate a link anyone can open, email results, or copy for Discord</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-label">Odds <span class="feature-accent">Transparency</span></div>
-          <div class="feature-desc">Visual odds chart so every manager sees the exact probabilities</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-label">Export <span class="feature-accent">Draftboard</span></div>
-          <div class="feature-desc">Download CSV, copy formatted results, or share via link</div>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Sports -->
-    <div class="sports-section">
-      <h2 class="section-title">Works for Any League</h2>
-      <p class="feature-desc" style="margin-bottom: 0.75rem;">Built with fantasy basketball at its core, ready for any format</p>
-      <div class="sports-row">
-        <span class="sport-pill">NBA</span>
-        <span class="sport-pill">NFL</span>
-        <span class="sport-pill">MLB</span>
-        <span class="sport-pill">NHL</span>
-        <span class="sport-pill">EPL</span>
-        <span class="sport-pill">Custom</span>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <div class="footer-links">
-        <a href="https://t.co/Gcvt13ghsP" target="_blank">Discord Community</a>
-        <a href="https://forms.gle/tm6keVXWNLJRNuS87" target="_blank">Submit Feedback</a>
-      </div>
-      <p class="footer-text">Moneyballers Impact Index</p>
-    </div>
+      <section class="sports-section" aria-labelledby="sports-title">
+        <h2 class="section-title" id="sports-title">Works for Any League</h2>
+        <p class="feature-desc">Built with fantasy basketball at its core, ready for any format.</p>
+        <div class="sports-row" aria-label="Supported league types">
+          <span class="sport-pill">NBA</span>
+          <span class="sport-pill">NFL</span>
+          <span class="sport-pill">MLB</span>
+          <span class="sport-pill">NHL</span>
+          <span class="sport-pill">EPL</span>
+          <span class="sport-pill">Custom</span>
+        </div>
+      </section>
+    </main>
   </div>
 
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="footer-brand-name" href="https://moneyballersimpact.com">
+            Moneyballers Impact<span>.</span>
+          </a>
+          <p>
+            An NBA impact model for analytics, fantasy, and player insights. Built on 30+ role-adjusted
+            metrics across production, efficiency, and defense.
+          </p>
+        </div>
+
+        <nav class="footer-group" aria-label="Player Index">
+          <h2><span>01</span>Player Index</h2>
+          <a href="https://moneyballersimpact.com/player-index">Impact Rankings</a>
+          <a href="https://moneyballersimpact.com/find-player">Player Profile</a>
+          <a href="https://moneyballersimpact.com/compare">Player Comparison</a>
+          <a href="https://moneyballersimpact.com/impact-map">Shot Map</a>
+          <a href="https://moneyballersimpact.com/market-movers">Market Movers</a>
+          <a href="https://moneyballersimpact.com/lineups">Lineup Lab</a>
+        </nav>
+
+        <nav class="footer-group" aria-label="NBA Pulse">
+          <h2><span>02</span>NBA Pulse</h2>
+          <a href="https://moneyballersimpact.com/hub">NBA Pulse</a>
+          <a href="https://moneyballersimpact.com/box-scores">Box Scores</a>
+          <a href="https://moneyballersimpact.com/player-stats">Game Logs</a>
+        </nav>
+
+        <nav class="footer-group" aria-label="Fantasy">
+          <h2><span>03</span>Fantasy</h2>
+          <a href="https://moneyballersimpact.com/fantasy/redraft">Redraft Rankings</a>
+          <a href="https://moneyballersimpact.com/fantasy/dynasty">Dynasty Rankings</a>
+          <a href="https://app.moneyballerops.com">Lottery Simulator</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Moneyballers Impact. All rights reserved.</span>
+        <span>Transparent tools for NBA analysis and fantasy decisions.</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
